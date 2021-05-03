@@ -1,5 +1,6 @@
 class SessionsController < Devise::SessionsController
   respond_to :json
+  skip_before_action :authenticate_user!
 
   private
 
@@ -10,4 +11,5 @@ class SessionsController < Devise::SessionsController
   def respond_to_on_destroy
     head :ok
   end
+
 end

@@ -1,4 +1,4 @@
-class RegionsController < ApplicationController
+class Api::RegionsController < ApiController
   before_action :set_region, only: [:update, :delete]
 
   def index

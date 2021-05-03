@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   devise_for :users,
               controllers: { 
                 registrations: :registrations, 
-                sessions: :sessions 
               },
               path: '',
               path_names: {
@@ -13,7 +12,14 @@ Rails.application.routes.draw do
                 registration: 'signup'
               }
 
-  resources :regions, only: basic_routes  do
-    resources :products, only: basic_routes
+  namespace :api do
+    post :auth, to: 'authentication#create'
+    get '/auth' => 'authentication#fetch'
+    
+    resources :regions, only: basic_routes  do
+      resources :products, only: basic_routes
+    end
   end
+  
+  
 end
