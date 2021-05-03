@@ -1,5 +1,9 @@
 class RegionsController < ApplicationController
   before_action :set_region, only: [:update, :delete]
+
+  def index
+    render json: RegionBlueprint.render(Region.all)
+  end
   
   def create
     @region = Region.new(permitted_params)

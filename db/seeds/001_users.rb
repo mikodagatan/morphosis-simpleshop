@@ -1,4 +1,4 @@
-User.create(
+member = User.create(
   first_name: 'Member',
   last_name: 'User',
   email: 'member@user.com',
@@ -6,7 +6,7 @@ User.create(
   password_confirmation: 'password123'
 )
 
-User.create(
+admin = User.create(
   first_name: 'Admin',
   last_name: 'User',
   email: 'admin@user.com',
@@ -14,3 +14,6 @@ User.create(
   password: 'password123',
   password_confirmation: 'password123'
 )
+
+member.generate_jwt
+admin.generate_jwt

@@ -1,4 +1,4 @@
-basic_routes = [:create, :update, :destroy]
+basic_routes = [:index, :show, :create, :update, :destroy]
 
 Rails.application.routes.draw do
   devise_for :users,

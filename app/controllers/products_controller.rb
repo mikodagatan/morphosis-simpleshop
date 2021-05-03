@@ -1,6 +1,11 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:update, :destroy]
 
+
+  def index
+    render json: ProductBlueprint.render(Product.all)
+  end
+
   def create
     @product = Product.new(permitted_params)
     authorize @product, :create?
