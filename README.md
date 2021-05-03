@@ -32,3 +32,8 @@ About the store:
 - Submit a postman collection along with code implementation via email
 - Provide proper documentations or notes about any extra libraries or complex integrations done in the application
 - OPTIONAL (BONUS) Rspec or cucumber tests for the implementations above
+
+## Additional Gems
+- Mimemagic - Bundle install is disallowed due to locking mimemagic at (0.3.5) and could not be found. Current impplementation allows the latest version and bundling.
+- Rack-CORS - Disallows API calls from unknown origins. 
+- JWT - Allows for JWT authentication within the Rails API.

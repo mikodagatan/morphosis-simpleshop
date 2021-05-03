@@ -12,6 +12,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
+gem 'rack-cors'
+gem 'jwt'
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 # gem 'image_processing', '~> 1.2'
 
