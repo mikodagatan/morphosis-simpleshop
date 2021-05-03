@@ -14,7 +14,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 gem 'devise', '~> 4.8'
-gem 'jwt', '~> 2.2', '>= 2.2.3'
+gem 'devise-jwt', '~> 0.5.8'
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 gem 'pundit'
 gem 'blueprinter'
@@ -28,6 +28,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :development do

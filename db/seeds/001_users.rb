@@ -14,6 +14,3 @@ admin = User.create(
   password: 'password123',
   password_confirmation: 'password123'
 )
-
-member.generate_jwt
-admin.generate_jwt

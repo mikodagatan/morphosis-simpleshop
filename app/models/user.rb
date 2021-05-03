@@ -13,25 +13,22 @@
 #  confirmation_sent_at   :datetime
 #  first_name             :string
 #  last_name              :string
-#  is_admin               :boolean          default(FALSE), not null
+#  is_admin               :boolean          default(FALSE)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
 class User < ApplicationRecord
+  include Devise::JWT::RevocationStrategies::JTIMatcher
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :jwt_authenticatable, jwt_revocation_strategy: self
   
   validates_presence_of :email, :password,
                         :first_name, :last_name
-
-  def generate_jwt
-    JWT.encode(
-      { id: id, exp: 60.days.from_now.to_i }, 
-      Rails.application.secrets.secret_key_base
-    )
-  end
 
   def name
     "#{first_name} #{last_name}"

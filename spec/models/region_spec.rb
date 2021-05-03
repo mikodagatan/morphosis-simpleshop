@@ -6,7 +6,7 @@
 #  title          :string           not null
 #  code           :string           not null
 #  currency       :string           not null
-#  tax_percentage :decimal(4, 3)
+#  tax_percentage :decimal(5, 3)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

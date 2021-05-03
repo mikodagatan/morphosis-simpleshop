@@ -1,15 +1,13 @@
-  class SessionsController < Devise::SessionsController
+class SessionsController < Devise::SessionsController
+  respond_to :json
 
-    def create
-      user = User.find_by(sign_in_params[:email])
+  private
 
-      if user && user.valid_password?(sign_in_params[:password])
-        token = user.generate_jwt
-        render json: token.to_json
-      else
-        render json: {
-          errors: { 'email or password' => ['is invalid'] }
-        }
-      end
-    end
+  def respond_with(resource, _opts = {})
+    render json: resource
   end
+
+  def respond_to_on_destroy
+    head :ok
+  end
+end
