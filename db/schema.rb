@@ -10,16 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_031158) do
+ActiveRecord::Schema.define(version: 2021_05_03_044155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "products", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.string "image"
+    t.decimal "price", precision: 15, scale: 2
+    t.string "sku"
+    t.integer "stock", default: 0, null: false
+    t.bigint "region_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["region_id"], name: "index_products_on_region_id"
+  end
 
   create_table "regions", force: :cascade do |t|
     t.string "title", null: false
     t.string "code", null: false
     t.string "currency", null: false
-    t.decimal "tax_percentage", precision: 4, scale: 3
+    t.decimal "tax_percentage", precision: 5, scale: 3
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -35,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_031158) do
     t.datetime "confirmation_sent_at"
     t.string "first_name"
     t.string "last_name"
-    t.boolean "is_admin", default: false, null: false
+    t.boolean "is_admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
@@ -43,4 +56,5 @@ ActiveRecord::Schema.define(version: 2021_05_03_031158) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "products", "regions"
 end

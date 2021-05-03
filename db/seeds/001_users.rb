@@ -10,6 +10,7 @@ User.create(
   first_name: 'Admin',
   last_name: 'User',
   email: 'admin@user.com',
+  is_admin: true,
   password: 'password123',
   password_confirmation: 'password123'
 )
