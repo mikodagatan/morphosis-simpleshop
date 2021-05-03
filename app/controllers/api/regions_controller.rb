@@ -1,5 +1,5 @@
 class Api::RegionsController < ApiController
-  before_action :set_region, only: [:update, :delete]
+  before_action :set_region, only: [:update, :destroy]
 
   def index
     render json: RegionBlueprint.render(Region.all)
@@ -27,7 +27,7 @@ class Api::RegionsController < ApiController
   def destroy
     authorize @region, :destroy?
     if @region.destroy
-      response json: RegionBlueprint.render(@region)
+      render json: RegionBlueprint.render(@region)
     else
       render json: { errors: @region.errors }, status: :unprocessable_entity
     end
