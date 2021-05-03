@@ -1,4 +1,4 @@
-class RegionsController < ApplicationController::API
+class RegionsController < ApplicationController
   before_action :fetch_region, only: [:update, :delete]
   
   def create

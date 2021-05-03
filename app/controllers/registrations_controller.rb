@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistartionsController
+class RegistrationsController < Devise::RegistrationsController
   def create
     user = User.new(sign_up_params)
 
