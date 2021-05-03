@@ -15,6 +15,8 @@
 #
 class Product < ApplicationRecord
   belongs_to :region
+  has_many   :product_orders
+  has_many   :orders, through: :product_orders
   
   validates_presence_of :title, :stock, :region_id
   validates_length_of :title, minimum: 5, maximum: 255
