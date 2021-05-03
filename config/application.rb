@@ -17,5 +17,10 @@ module SimpleShop
     # the framework and any gems in your application.
     config.api_only = true
     config.debug_exception_response_format = :default
+
+    console do
+      require "pry"
+      config.console = Pry
+    end
   end
 end

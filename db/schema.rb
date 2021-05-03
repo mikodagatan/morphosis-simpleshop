@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_015109) do
+ActiveRecord::Schema.define(version: 2021_05_03_031158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "regions", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "code", null: false
+    t.string "currency", null: false
+    t.decimal "tax_percentage", precision: 4, scale: 3
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_015109) do
     t.datetime "confirmation_sent_at"
     t.string "first_name"
     t.string "last_name"
-    t.boolean "is_admin"
+    t.boolean "is_admin", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
