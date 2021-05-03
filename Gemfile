@@ -12,8 +12,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
-gem 'rack-cors'
-gem 'jwt'
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'
+gem 'devise', '~> 4.8'
+gem 'jwt', '~> 2.2', '>= 2.2.3'
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 # gem 'image_processing', '~> 1.2'
@@ -31,6 +32,7 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry', '~> 0.14.1'
 end
 
 group :test do
