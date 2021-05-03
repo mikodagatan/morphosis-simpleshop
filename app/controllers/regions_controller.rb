@@ -1,33 +1,38 @@
 class RegionsController < ApplicationController
-  before_action :fetch_region, only: [:update, :delete]
+  before_action :set_region, only: [:update, :delete]
   
   def create
     @region = Region.new(permitted_params)
     authorize @region, :create?
+    if @region.save
+      render json: RegionBlueprint.render(@region)
+    else
+      render json: { errors: @region.errors }, status: :unprocessable_entity 
+    end
   end
 
   def update
     authorize @region, :update?
     if @region.update(permitted_params)
-      response json: { message: "The #{@region.title} region is successfully updated." }
+      render json: RegionBlueprint.render(@region)
     else
-      response json: @region.errors.full_messages
+      render json: { errors: @region.errors }, status: :unprocessable_entity
     end
   end
 
   def destroy
     authorize @region, :destroy?
     if @region.destroy
-      response json: { message: "The #{@region.title} is successfully deleted." }
+      response json: RegionBlueprint.render(@region)
     else
-      response json: { message: "Something is wrong when deleting #{@region.title}." }
+      render json: { errors: @region.errors }, status: :unprocessable_entity
     end
   end
 
 
   private
 
-  def fetch_region
+  def set_region
     @region = Region.find(params[:id])
   end
 

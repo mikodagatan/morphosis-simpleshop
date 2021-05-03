@@ -1,7 +1,10 @@
+basic_routes = [:create, :update, :destroy]
+
 Rails.application.routes.draw do
   devise_for :users,
-  contollers: { registrations: :registrations, sessions: :sessions }
+  controllers: { registrations: :registrations, sessions: :sessions }
 
-  namespace 'api', format: 'json' do
+  resources :regions, only: basic_routes  do
+    resources :products, only: basic_routes
   end
 end
