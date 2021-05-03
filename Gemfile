@@ -16,6 +16,7 @@ gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 gem 'devise', '~> 4.8'
 gem 'jwt', '~> 2.2', '>= 2.2.3'
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+gem 'pundit'
 
 # gem 'image_processing', '~> 1.2'
 
