@@ -7,7 +7,13 @@ class Api::OrdersController < ApiController
   end
 
   def create
-    # create a service object for this.
+    order_creation = Orders::Order.new(permitted_params)
+
+    if order_creation.call
+      render json: OrderBlueprint.render(order_creation.order)
+    else
+      render json: { errors: order_creation.errors }
+    end
   end
 
   private
@@ -17,7 +23,11 @@ class Api::OrdersController < ApiController
   end
 
   def permitted_params
-    params.require(:order).permit()
+    params.permit(
+      customer: [:id],
+      address: [:id],
+      product_orders: [:product_id, :quantity]
+    )
   end
 
 end

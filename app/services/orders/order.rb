@@ -14,9 +14,9 @@ module Orders
 
 
     def initialize(params)
-      params = params.to_h.deep_symbolize_keys!
-      @customer = params[:customer]
-      @address = params[:address]
+      params = params.to_h.deep_symbolize_keys
+      @customer = User.find(params[:customer][:id])
+      @address = Address.find(params[:address][:id])
       @product_orders = params[:product_orders]
       @errors = []
 
@@ -40,7 +40,8 @@ module Orders
           ActiveRecord::Rollback
         end
         
-        errors.length > 0 ? errors : self
+        return false if errors.length > 0
+        true
       end
       
     end
