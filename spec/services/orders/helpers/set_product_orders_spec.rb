@@ -7,7 +7,7 @@ RSpec.describe Orders::Helpers::SetProductOrders do
       address = create(:address)
       customer = address.user
 
-      expect(user.first_name).to eq("John") 
+      expect(customer.first_name).to eq("John")
 
       # expect(result.post).to eq(post)
       # expect(result.purchaser).to eq(purchaser)

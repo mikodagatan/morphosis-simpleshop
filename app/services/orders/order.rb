@@ -12,7 +12,6 @@ module Orders
 
     def call
       set_product_orders
-      
     end
 
   end
