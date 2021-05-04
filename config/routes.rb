@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   namespace :api do
     post :auth, to: 'authentication#create'
     get '/auth' => 'authentication#fetch'
+
+    resources :users, only: [:index, :destroy]
     
     resources :regions, only: basic_routes  do
       resources :products, only: basic_routes

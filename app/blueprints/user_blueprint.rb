@@ -1,8 +1,7 @@
-class AddressBlueprint < Blueprinter::Base
+class UserBlueprint < Blueprinter::Base
   identifier :id
 
   fields :email, :first_name, :last_name
 
-  association :address, blueprint: AddressBlueprint
-  association :order, blueprint: OrderBlueprint
+  association :addresses, blueprint: AddressBlueprint
 end
