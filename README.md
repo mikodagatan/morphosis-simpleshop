@@ -36,6 +36,7 @@ About the store:
 ## Additional Gems
 - Mimemagic - Bundle install is disallowed due to locking mimemagic at (0.3.5) and could not be found. Current impplementation allows the latest version and bundling.
 - Rack-CORS - Disallows API calls from unknown origins. 
-- JWT - Allows for JWT authentication within the Rails API.
-- Devise - out-of-the-box user registration and authentication to be used with JWT.
-- Pundit - application policies in allowing or restricting users access.
+- Devise - Out-of-the-box user registration and authentication to be used with JWT.
+- [Devise-JWT](https://github.com/waiting-for-dev/devise-jwt) - Allows for JWT authentication within the Rails API.
+- [Pundit](https://github.com/varvet/pundit) - Aspplication policies in allowing or restricting users access.
+- [Blueprinter](https://github.com/procore/blueprinter) - JSON Object presenter for easier logic to replace ActiveModelSerializers.
