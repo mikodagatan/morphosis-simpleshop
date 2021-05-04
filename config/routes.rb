@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :destroy] do 
       resources :addresses, only: basic_routes
-      resources :orders, only: basic_routes
+      resources :orders, only: [:index, :create]
     end
     
     resources :regions, only: basic_routes  do

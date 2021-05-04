@@ -9,16 +9,16 @@ default: &default
 
 development:
   <<: *default
-  database: application-database-dev
+  database: simpleshop-dev
   
 test:
   <<: *default
-  database: application-database-test
+  database: simpleshop-test
 
 staging:
   <<: *default
-  database: application-database-stg
+  database: simpleshop-stg
 
 production:
   <<: *default
-  database: application-database-prod
+  database: simpleshop-prod

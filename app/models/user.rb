@@ -30,6 +30,7 @@ class User < ApplicationRecord
 
   has_many :addresses 
   has_many :orders, foreign_key: "customer_id", dependent: :destroy, inverse_of: :customer
+  has_many :notifications, as: :recipient
  
   validates       :email, presence: true
   validates       :password, presence: true, length: { minimum: 6 }
