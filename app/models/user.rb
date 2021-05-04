@@ -28,9 +28,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: self
 
-  has_many :addresses
-  has_many :orders
-
+  has_many :addresses 
+  has_many :orders, foreign_key: "customer_id", dependent: :destroy, inverse_of: :customer
+ 
   validates       :email, presence: true
   validates       :password, presence: true, length: { minimum: 6 }
   validates       :first_name, presence: true

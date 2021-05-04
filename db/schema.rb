@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_161809) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["address_id"], name: "index_orders_on_address_id"
-    t.index ["customer_id"], name: "index_orders_on_customer_id", unique: true
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "product_orders", force: :cascade do |t|

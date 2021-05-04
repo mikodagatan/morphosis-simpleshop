@@ -11,6 +11,7 @@
 #  updated_at     :datetime         not null
 #
 class Order < ApplicationRecord
+  include ActionView::Helpers::NumberHelper
   enum status: { 
     pending: 0, failed: 1, cancelled: 2, paid: 3, delivered: 4 
   }
@@ -25,4 +26,7 @@ class Order < ApplicationRecord
   validates   :customer_id, presence: true
   validates   :address_id, presence: true
 
+  def total_price
+    number_to_currency(total, unit: address.region.currency )
+  end
 end

@@ -21,4 +21,6 @@ class Product < ApplicationRecord
   validates     :title, presence: true, length: { minimum: 5, maximum: 255 }
   validates     :stock, presence: true, numericality: { greater_than_or_equal_to: 0}
   validates     :region_id, presence: true
+
+  scope :in_region, ->(region) { where(region: region) }
 end

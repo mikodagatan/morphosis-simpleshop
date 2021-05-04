@@ -16,15 +16,17 @@ Rails.application.routes.draw do
     post :auth, to: 'authentication#create'
     get '/auth' => 'authentication#fetch'
 
-    resources :users, only: [:index, :destroy]
+    resources :users, only: [:index, :destroy] do 
+      resources :addresses, only: basic_routes
+      resources :orders, only: basic_routes
+    end
     
     resources :regions, only: basic_routes  do
       resources :products, only: basic_routes
     end
 
     devise_scope :users do
-      resources :addresses, only: basic_routes
-      resources :orders, only: basic_routes
+      
     end
   end
 

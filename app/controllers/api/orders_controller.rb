@@ -2,7 +2,8 @@ class Api::OrdersController < ApiController
   before_action :set_user
 
   def index
-    render json: @user.orders, with: [:product_orders]
+    orders = @user.orders
+    render json: OrderBlueprint.render(orders)
   end
 
   def create
@@ -11,7 +12,7 @@ class Api::OrdersController < ApiController
 
   private
 
-  def before_action
+  def set_user
     @user = User.find(params[:user_id])
   end
 
