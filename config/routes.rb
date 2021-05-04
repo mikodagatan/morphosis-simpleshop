@@ -19,7 +19,11 @@ Rails.application.routes.draw do
     resources :regions, only: basic_routes  do
       resources :products, only: basic_routes
     end
+
+    devise_scope :users do
+      resources :addresses, only: basic_routes
+      resources :orders, only: basic_routes
+    end
   end
-  
-  
+
 end

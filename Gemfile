@@ -45,6 +45,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'shoulda-matchers', '~> 4.0'
+  gem 'factory_bot'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

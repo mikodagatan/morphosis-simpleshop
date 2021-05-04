@@ -14,6 +14,7 @@
 #  first_name             :string
 #  last_name              :string
 #  is_admin               :boolean          default(FALSE)
+#  jti                    :string           not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -26,9 +27,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: self
-  
-  validates_presence_of :email, :password,
-                        :first_name, :last_name
+
+  has_many :addresses
+  has_many :orders
+
+  validates       :email, presence: true
+  validates       :password, presence: true, length: { minimum: 6 }
+  validates       :first_name, presence: true
+  validates       :last_name, presence: true
 
   def name
     "#{first_name} #{last_name}"

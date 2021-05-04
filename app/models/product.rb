@@ -14,11 +14,11 @@
 #  updated_at  :datetime         not null
 #
 class Product < ApplicationRecord
-  belongs_to :region
-  has_many   :product_orders
-  has_many   :orders, through: :product_orders
+  belongs_to    :region
+  has_many      :product_orders
+  has_many      :orders, through: :product_orders
   
-  validates_presence_of :title, :stock, :region_id
-  validates_length_of :title, minimum: 5, maximum: 255
-  validates_numericality_of :stock, greater_than_or_equal_to: 0
+  validates     :title, presence: true, length: { minimum: 5, maximum: 255 }
+  validates     :stock, presence: true, numericality: { greater_than_or_equal_to: 0}
+  validates     :region_id, presence: true
 end
