@@ -5,6 +5,7 @@
 #  id             :bigint           not null, primary key
 #  reference_code :string
 #  total          :decimal(14, 2)
+#  status         :integer
 #  customer_id    :integer          not null
 #  address_id     :bigint           not null
 #  created_at     :datetime         not null

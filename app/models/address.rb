@@ -8,6 +8,7 @@
 #  city        :string           not null
 #  state       :string           not null
 #  postal_code :string
+#  country     :string
 #  user_id     :bigint           not null
 #  region_id   :bigint           not null
 #  created_at  :datetime         not null

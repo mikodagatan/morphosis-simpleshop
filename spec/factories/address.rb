@@ -1,11 +1,13 @@
 FactoryBot.define do
   factory :address do
-    line1     { "line1" }
-    line2     { "line2" }
-    city      { "Bangkok" }
-    state     { "Central Thailand" }
-    postal_code { "10100" }
+    
+    line2           { "village" }
+    city            { "Bangkok" }
+    state           { "Central Thailand" }
+    postal_code     { "10100" }
     region
     user
+    
+    sequence(:line1) { |n| "#{n} sample street" }
   end
 end
