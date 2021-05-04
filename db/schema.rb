@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_161809) do
     t.string "city", null: false
     t.string "state", null: false
     t.string "postal_code"
+    t.string "country"
     t.bigint "user_id", null: false
     t.bigint "region_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_161809) do
   create_table "orders", force: :cascade do |t|
     t.string "reference_code"
     t.decimal "total", precision: 14, scale: 2
+    t.integer "status"
     t.integer "customer_id", null: false
     t.bigint "address_id", null: false
     t.datetime "created_at", precision: 6, null: false
