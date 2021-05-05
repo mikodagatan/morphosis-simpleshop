@@ -1,5 +1,6 @@
 class Api::AddressesController < ApiController
-  # WHY: allow Address to be set up independently from Order
+  # WHY: allow Address to be set up independently from Order.
+  # This is usual for e-commerce apps.
   
   def index
     render json: @user.addresses
