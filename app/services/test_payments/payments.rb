@@ -6,7 +6,7 @@ module TestPayments
     end
 
     def call
-      order.status = ["paid", "failed"].sample
+      order.status = ["paid", "failed", "cancelled"].sample
       order.save
 
       self

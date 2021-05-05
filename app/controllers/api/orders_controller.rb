@@ -8,6 +8,7 @@ class Api::OrdersController < ApiController
 
   def create
     order_creation = Orders::Order.new(permitted_params)
+    Test::PaymentWorker.perform_at(1.minute.from_now) # updates status randomly
 
     if order_creation.call
       render json: OrderBlueprint.render(order_creation.order)
