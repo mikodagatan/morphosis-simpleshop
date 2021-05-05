@@ -46,3 +46,4 @@ About the store:
 - [Pundit](https://github.com/varvet/pundit) - Aspplication policies in allowing or restricting users access.
 - [Blueprinter](https://github.com/procore/blueprinter) - JSON Object presenter for easier logic to replace ActiveModelSerializers.
 - [Noticed](https://github.com/excid3/noticed) - Notifications gem paired with various delivery methods such as twilio(sms), action_cable, email.
+- [Mailtrap](https://mailtrap.io/) - Receives emails sent to any destination. 
