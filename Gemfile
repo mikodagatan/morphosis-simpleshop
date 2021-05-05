@@ -10,7 +10,7 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 gem 'devise', '~> 4.8'
@@ -19,9 +19,7 @@ gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dab
 gem 'pundit'
 gem 'blueprinter'
 # gem 'image_processing', '~> 1.2'
-
 gem 'bootsnap', '>= 1.4.2', require: false
-
 gem 'sidekiq'
 
 group :development, :test do
@@ -47,7 +45,6 @@ group :test do
   gem 'shoulda-matchers', '~> 4.0'
   gem 'factory_bot_rails'
   gem "database_cleaner"
-
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

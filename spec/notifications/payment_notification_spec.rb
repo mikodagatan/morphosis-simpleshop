@@ -1,4 +1,7 @@
 require "rails_helper"
+require 'sidekiq/testing'
+
+Sidekiq::Testing.fake!
 
 RSpec.describe PaymentNotification do
   describe "#deliver" do
@@ -20,7 +23,8 @@ RSpec.describe PaymentNotification do
       end
 
       it "creates a DB record" do
-        PaymentNotification.with(order: @instance.order).deliver(@customer)
+        PaymentNotification.with(order: @instance.order).deliver_later(@customer)
+
  
         expect(Notification.all.size).to eq(1)
       end

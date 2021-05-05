@@ -22,5 +22,8 @@ module SimpleShop
       require "pry"
       config.console = Pry
     end
+
+    # use sidekiq for queueing
+    config.active_job.queue_adapter = :sidekiq
   end
 end

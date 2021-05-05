@@ -5,6 +5,7 @@
 
 class PaymentNotification < Noticed::Base
   deliver_by :database
+  deliver_by :action_cable, wait: 1.minute
   # deliver_by :email, mailer: "UserMailer"
   # deliver_by :slack
   # deliver_by :custom, class: "MyDeliveryMethod"

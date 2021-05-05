@@ -64,4 +64,5 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "http://localhost" }
+  config.web_console.whiny_requests = false
 end

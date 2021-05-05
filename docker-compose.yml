@@ -13,7 +13,19 @@ services:
   redis:
     image: redis:6.0.2-alpine
     ports:
-      - "7002:6379"
+    - "7002:6379"
+  sidekiq:
+    container_name: simpleshop-sidekiq
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - '.:/api'
+      - '/tmp' # check if correct
+    env_file:
+      - '.env'
+    depends_on:
+    - 'db'
+    - 'redis'
   web:
     container_name: simpleshop-web
     build: .
@@ -22,7 +34,11 @@ services:
       - './:/api'
     ports:
       - '3000:3000'
+    env_file:
+      - '.env'
     depends_on:
       - db
+  
 volumes:
   data:
+  redis:

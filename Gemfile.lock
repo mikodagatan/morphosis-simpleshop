@@ -336,6 +336,7 @@ DEPENDENCIES
   pundit
   rack-cors (~> 1.1, >= 1.1.1)
   rails (~> 6.0.3, >= 6.0.3.4)
+  redis (~> 4.0)
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver

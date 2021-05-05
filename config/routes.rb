@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 basic_routes = [:index, :show, :create, :update, :destroy]
 
 Rails.application.routes.draw do
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
                 sign_out: 'logout',
                 registration: 'signup'
               }
+  mount Sidekiq::Web => '/sidekiq'
 
   namespace :api do
     post :auth, to: 'authentication#create'
