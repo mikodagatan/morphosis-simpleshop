@@ -40,3 +40,4 @@ About the store:
 - [Devise-JWT](https://github.com/waiting-for-dev/devise-jwt) - Allows for JWT authentication within the Rails API.
 - [Pundit](https://github.com/varvet/pundit) - Aspplication policies in allowing or restricting users access.
 - [Blueprinter](https://github.com/procore/blueprinter) - JSON Object presenter for easier logic to replace ActiveModelSerializers.
+- [Noticed](https://github.com/excid3/noticed) - Notifications gem paired with various delivery methods such as twilio(sms), action_cable, email.
