@@ -33,6 +33,11 @@ About the store:
 - Provide proper documentations or notes about any extra libraries or complex integrations done in the application
 - OPTIONAL (BONUS) Rspec or cucumber tests for the implementations above
 
+## Commands
+- `docker-compose up` - start up the web app, db, and redis.
+- `docker-compose exec web bash` - access the web container for several rails commands. All rails commands have to be written here
+
+
 ## Additional Gems
 - Mimemagic - Bundle install is disallowed due to locking mimemagic at (0.3.5) and could not be found. Current impplementation allows the latest version and bundling.
 - Rack-CORS - Disallows API calls from unknown origins. 
