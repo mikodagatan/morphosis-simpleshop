@@ -29,7 +29,7 @@ class Order < ApplicationRecord
   validates   :customer_id, presence: true
   validates   :address_id, presence: true
 
-  after_update :adjust_products
+  before_update :adjust_products # ActiveModel::Dirty doesn't work on after_update
 
   def total_price
     number_to_currency(total, unit: address.region.currency )
@@ -38,7 +38,6 @@ class Order < ApplicationRecord
   private
 
   def adjust_products
-    puts "Order#adjust_products"
     Payments::ProductAdjustments.new(self).call if status_changed?
   end 
 end

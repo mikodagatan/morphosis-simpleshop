@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :destroy] do 
       resources :addresses, only: basic_routes
-      resources :orders, only: [:index, :create]
+      resources :orders, only: [:index, :create, :update]
     end
     
     resources :regions, only: basic_routes  do

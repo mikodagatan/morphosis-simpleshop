@@ -9,7 +9,7 @@ User.all.each do |user|
     
     order = Order.new(
       reference_code: Faker::Code.asin,
-      status: :paid,
+      status: :pending,
       customer: user,
       address: address
     )
@@ -17,7 +17,6 @@ User.all.each do |user|
 
     [product1, product2].each do |product|
       qty = rand(1..2)
-      qty = qty > product.stock ? product.stock : qty # adjust if the quantity is higher than the stock
 
       product_order = order.product_orders.build(
         product: product,
@@ -25,7 +24,6 @@ User.all.each do |user|
         subtotal: product.price * qty
       )
       product_order.save
-      product.update(stock: product.stock - qty)
     end
 
     order.update(

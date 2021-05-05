@@ -3,6 +3,7 @@ module Payments
     module AdjustStock
 
       def adjust_stock
+        
         if order.cancelled? || order.failed?
           order.product_orders.each do |product_order|
             product = product_order.product

@@ -7,7 +7,7 @@ Region.all.each do |region|
       image: "https://picsum.photos/200",
       price: Faker::Number.decimal(r_digits: 2),
       sku: Faker::Code.imei,
-      stock: Faker::Number.between(from: 0, to: 35),
+      stock: 10,
     )
   end
 end

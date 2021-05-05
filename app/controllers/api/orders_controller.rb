@@ -16,6 +16,17 @@ class Api::OrdersController < ApiController
     end
   end
 
+  def update
+    order = Order.find(params[:id])
+    authorize order, :update?
+
+    if order.update(update_params)
+      render json: OrderBlueprint.render(order)
+    else
+      render json: { errors: order.errors }
+    end
+  end
+  
   private
 
   def set_user
@@ -28,6 +39,10 @@ class Api::OrdersController < ApiController
       address: [:id],
       product_orders: [:product_id, :quantity]
     )
+  end
+
+  def update_params
+    params.require(:order).permit(:status)
   end
 
 end
