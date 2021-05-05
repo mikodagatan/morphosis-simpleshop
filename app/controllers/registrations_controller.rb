@@ -13,6 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
+    # NOTE: User created through request will always be a non-admin
     params.permit(:email, :password, :password_confirmation, :first_name, :last_name)
   end
 end
