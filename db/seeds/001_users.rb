@@ -3,7 +3,8 @@ member = User.create(
   last_name: 'User',
   email: 'member@user.com',
   password: 'password123',
-  password_confirmation: 'password123'
+  password_confirmation: 'password123',
+  confirmed_at: DateTime.now
 )
 
 admin = User.create(
@@ -12,5 +13,6 @@ admin = User.create(
   email: 'admin@user.com',
   is_admin: true,
   password: 'password123',
-  password_confirmation: 'password123'
+  password_confirmation: 'password123',
+  confirmed_at: DateTime.now
 )

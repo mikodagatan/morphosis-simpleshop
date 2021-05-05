@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_140618) do
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.string "first_name"
     t.string "last_name"
     t.boolean "is_admin", default: false
