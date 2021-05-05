@@ -2,12 +2,55 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-      /* Email styles need to be inline */
+    body {
+      background-color: #41B3A3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins';
+      font-size: 14px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    h4 {
+      font-size: 16px;
+    }
+      
+    .container {
+      width: 800px;
+      min-height: 800px;
+      margin: 20px 40px;
+      padding: 20px 40px;
+      background-color: white;
+      border-radius: 8px;
+    }
+    
+    .mail-body {
+      font-weight: 300;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+    }
+   
     </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="logo">SimpleShop</div>
+      <h4>Hi <%= @user.name %>,</h4>
+      <div class="mail-body"> 
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
