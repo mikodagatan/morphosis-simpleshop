@@ -1,8 +1,8 @@
 class Test::PaymentWorker
   include Sidekiq::Worker
 
-  def perform(*args)
-    
+  def perform(params)
+    TestPayments::Payments.new(params['order_id']).call    
   end
 end
   

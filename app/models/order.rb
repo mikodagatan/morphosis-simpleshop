@@ -38,6 +38,9 @@ class Order < ApplicationRecord
   private
 
   def adjust_products
-    Payments::ProductAdjustments.new(self).call if status_changed?
+    if status_changed?
+      Payments::ProductAdjustments.new(self).call
+      PaymentNotification.with(order: self).deliver(customer)
+    end
   end 
 end

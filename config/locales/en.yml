@@ -36,4 +36,5 @@ en:
       message:
         paid: "You have successfully paid %{total_price} for order #%{reference_code}."
         failed: "Your payment for order has failed to push through."
-        pending: "Your payment for order reference_code} is still pending."
+        pending: "Your payment for order #%{reference_code} is still pending."
+        cancelled: "Your order with the reference number of #%{reference_code} is successfully cancelled."

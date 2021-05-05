@@ -1,8 +1,9 @@
 module TestPayments
   class Payments
     attr_reader :order
-    def initialize(order)
-      @order = order
+
+    def initialize(order_id)
+      @order = Order.find(order_id)
     end
 
     def call

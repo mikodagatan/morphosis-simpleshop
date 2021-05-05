@@ -8,10 +8,16 @@ class Api::OrdersController < ApiController
 
   def create
     order_creation = Orders::Order.new(permitted_params)
-    Test::PaymentWorker.perform_at(1.minute.from_now) # updates status randomly
+
 
     if order_creation.call
       render json: OrderBlueprint.render(order_creation.order)
+      Test::PaymentWorker.perform_at(
+        1.minute.from_now, 
+        order_id: order_creation.order.id
+      )
+
+      # Test::PaymentWorker.perform_async(order_id: order_creation.order.id)  # NOTE: use this to perform immediately
     else
       render json: { errors: order_creation.errors }
     end
