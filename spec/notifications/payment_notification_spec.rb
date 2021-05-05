@@ -23,7 +23,9 @@ RSpec.describe PaymentNotification do
       end
 
       it "creates a DB record" do
-        PaymentNotification.with(order: @instance.order).deliver_later(@customer)
+        PaymentNotification.with( 
+          order: @instance.order
+        ).deliver_later(@customer)
 
  
         expect(Notification.all.size).to eq(1)

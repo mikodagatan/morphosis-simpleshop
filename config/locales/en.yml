@@ -35,5 +35,5 @@ en:
     payment_notification:
       message:
         paid: "You have successfully paid %{total_price} for order #%{reference_code}."
-        failed: "Your payment for order #%{reference_code} has failed to push through."
+        failed: "Your payment for order has failed to push through."
         pending: "Your payment for order reference_code} is still pending."
